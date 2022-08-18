@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>View and Allocate Time Table </h1>
+<h6>(Be Patient Each allocation can take upto 30 Secconds)</h6>
+<style>
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        
+      }
+      .btn-open {
+        font-size: 1.5rem;
+        position: absolute;
+        cursor: pointer;
+        opacity: 0;
+        user-select: none;
+        visibility: hidden;
+        pointer-events: none;
+      }
+      .btn-download {
+        font-size: 1.0rem;
+        cursor: pointer;
+        border: none;
+        background-color: #000000;
+        color: #fff;
+        width: 300px;
+        height: 30px;
+        transition: all 1.5s ease;
+        transform-origin: center bottom;
+        transform: scale(1.5);
+        position: relative;
+        overflow: hidden;
+        outline: none;
+      }
+      .btn-download:hover {
+        background-color: #a0a0a0;
+      }
+      .btn-download:before, .btn-download:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .btn-download:after {
+        background: #040404;
+        border-radius: 5px;
+        transform: translatex(-100%);
+      }
+      .btn-download:focus {
+        font-size: 0;
+        height: 10px;
+        border-radius: 20px;
+        background-color: #d1d1d1;
+        animation-name: stretch;
+        animation-delay: 1.5s;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
+      }
+      .btn-download:focus + .btn-open {
+        animation-name: appear;
+        animation-delay: 9.5s;
+        animation-duration: 0.8s;
+        animation-fill-mode: forwards;
+      }
+      .btn-download:focus:after {
+        transform: translateX(0);
+        transition: transform 9.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+        transition-delay: 0.4s;
+      }
+      @keyframes stretch {
+        from {
+          transform: scale(1);
+        }
+        to {
+          transform: scale(1.5);
+        }
+      }
+      @keyframes appear {
+        from {
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(0);
+        }
+        to {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(-15px);
+        }
+      }
+</style>
+<div>
+    {%for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+</div>
+
+<table border="5"><tr>
+    <th>TID</th><th>Exam Date</th><th>Exam Time</th><th>Eid</th><th>Pid</th>
+ </tr>
+     
+     {% for timetable in timetables %}<tr>
+     <td>{{timetable.id}}</td><td>{{timetable.edate}}</td><td>{{timetable.etime}}</td>
+     <td>{{timetable.eid}}</td><td>{{timetable.pid}}</td>
+     <td>
+        <form method="post" action="allocate">{% csrf_token %}
+        <input name="edate" type="hidden" value={{timetable.edate| date:"Y-m-d"}} />
+        <input name="etime" type="hidden" value={{timetable.etime}} />
+        <input name="tid" type="hidden" value={{timetable.id}} />
+        <input name="eid" type="hidden" value={{eid}} />
+        {% if timetable.dornot == "disabled" %}
+
+        <input id="buttons1" class="buttons" {{timetable.dornot}} name="id1" type="submit" value={{timetable.allocation}}>
+        {% else %}
+        <div {{timetable.dornot}} class="buttons" >
+            <button class="btn-download">    Allocate    </button>
+            <span class="btn-open">Allocated</span>
+          </div>
+        {% endif %}
+    </form></td>
+    <td>
+        <form method="post" target="_blank" action="viewseating">{% csrf_token %}
+        <input name="edate" type="hidden" value={{timetable.edate| date:"Y-m-d"}} />
+        <input name="etime" type="hidden" value={{timetable.etime}} />
+        <input name="tid" type="hidden" value={{timetable.id}} />
+        <input name="eid" type="hidden" value={{eid}} />
+        <input  {{timetable.view}} name="id2" type="submit" value=View></form></td>
+    </tr>
+    {% endfor %}
+ </table><br><br>
+ <form action="aaselect" method="post">
+    
+    <input name="eid" type="hidden" value={{eid}} />
+    <input class="slide" class="final" {{final}} type="submit"  value="Verify And Proceed"><i class="icon-arrow-right"></i></input><br><br>
+    {% csrf_token %}
+
+</form>
+<style>
+    
+</style>
+
+
+
+ <!--<form action="nominal" method="post">
+    {% csrf_token %}
+
+    <input type="submit" class="button-main" value="Go Back"><br><br>
+</form>--> 
+
+<form action="login" method="get">
+    {% csrf_token %}
+
+    <input type="submit" class="button-main" value="Go Home"><br><br>
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>View and Verify paper details</h1>
+Of {{pgm}}, {{sem}}
+<div>
+    {%for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+</div>
+
+ <table border="5"><tr>
+    <th>ID</th><th>paper Code</th><th>paper Name</th><th>paper Count</th><th>Exam ID</th><th></th>
+ </tr>
+     
+     {% for paper in papers %}<tr>
+     <td>{{paper.id}}</td><td>{{paper.pcode}}</td><td>{{paper.pname}}</td><td>{{paper.pcount}}</td><td>{{paper.eid}}</td>
+     <td><form method="post" action="pdelete">{% csrf_token %}
+        <input name="pid" type="hidden" value={{paper.id}} />
+        <input name="eid" type="hidden" value={{eid}} />
+        <input name="id1" type="submit" value=Delete>
+    </form></td>
+    </tr>
+    {% endfor %}
+ </table><br><br><!--<form action="addpaper" method="get">
+    {% csrf_token %}
+    <input name="eid" type="hidden" value={{eid}} />
+    <input type="submit"  value="Add paper"><br><br>
+
+</form>-->
+
+
+<form action="vpapers" method="get">
+    {% csrf_token %}
+    <input name="eid" type="hidden" value={{eid}} />
+    <input type="submit"  value="Verify And Go To Next Step"><br><br>
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<form action="nominal" method="post">
+    {% csrf_token %}
+
+    <input type="submit" class="button-main" value="Go Back"><br><br>
+</form>
+<form action="login" method="get">
+    {% csrf_token %}
+
+    <input type="submit" class="button-main" value="Go Home"><br><br>
+</form>
+
+{% endblock %}

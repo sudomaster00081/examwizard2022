@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Nominal Entry</h1>
+<form action="newexam" method="get">
+    {% csrf_token %}
+
+    <input type="submit" class="button-62" value="Initialise New Exam"><br><br>
+</form>
+<form action="selectpexam" method="get">
+    {% csrf_token %}
+<input type="submit" class="button-62" value="Manage Paper Data"><br><br>
+</form>
+<form action="selectsexam" method="get">
+    {% csrf_token %}
+
+    <input type="submit" class="button-62" value="Manage Student Data"><br><br>
+</form>
+<form action="selecttexam" method="get">
+    {% csrf_token %}
+
+    <input type="submit" class="button-62" value="Manage Exam Date and Time"><br><br>
+</form>
+<form action="new" method="post">
+    {% csrf_token %}
+
+    <input type="submit" class="button-62" value="Go Back"><br><br>
+</form>
+<form action="login" method="get">
+    {% csrf_token %}
+
+    <input type="submit" class="button-62" value="Go Home"><br><br>
+</form>
+
+{% endblock %}

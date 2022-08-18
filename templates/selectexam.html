@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Select Exam</h1>
+<h2>{{a}}</h2>
+<div>
+    {%for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+</div>
+
+ <table border="5"><tr>
+    <th>ID</th><th>Exam Code</th><th>Exam Year</th><th>Exam Program</th><th>Exam Semester</th><th></th>
+ </tr>
+     {% for exam in exams %}<tr>
+     <td>{{exam.id}}</td><td>{{exam.ecode}}</td>
+     <td>{{exam.eyear}}</td><td>{{exam.eprogram}}</td><td>{{exam.esemester}}</td>
+     <td><form method="post" action={{action}}>{% csrf_token %}
+        <input name="id" type="hidden" value={{exam.id}} />
+        <input name="eid" type="hidden" value={{exam.id}} />
+        
+        <input name="id1" class="button-62" type="submit" value=Select>
+    </form><br><br><form method="post" action=edelete>{% csrf_token %}
+        <input name="id" type="hidden" value={{exam.id}} />
+        <button class="button-delete">  
+            <div class="trash">  
+              <div class="top">  
+                <div class="paper"></div>  
+              </div>  
+              <div class="box"></div>  
+              <div class="check">  
+                <svg viewBox="0 0 8 6">  
+                  <polyline points="1 3.4 2.71428571 5 7 1"></polyline>  
+                </svg>  
+              </div>  
+            </div>  
+            <span>Delete Item</span>  
+          </button> 
+    </form></td>
+    </tr>
+    {% endfor %}
+ </table><br><br>
+ 
+ <form action="newexam" method="get">
+    {% csrf_token %}
+
+    <input type="submit" class="button-62" value="Create New"><br><br>
+</form>
+
+<form action="login" method="get">
+    {% csrf_token %}
+
+    <input type="submit" class="button-main" value="Go Back"><br><br>
+</form>
+<!--
+<form action="login" method="get">
+    {% csrf_token %}
+
+    <input type="submit" class="button-62" value="Go Home"><br><br>
+
+</form>-->
+{% endblock %}

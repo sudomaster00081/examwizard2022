@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>ExamInfo</h1>
+<h2>{{a}}</h2>
+<div>
+    {%for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+</div>
+
+ <table border="5"><tr>
+    <th>ID</th><th>Exam Code</th><th>Exam Year</th><th>Exam Program</th><th>Exam Semester</th><th></th>
+ </tr>
+     {% for exam in exams %}<tr>
+     <td>{{exam.id}}</td><td>{{exam.ecode}}</td>
+     <td>{{exam.eyear}}</td><td>{{exam.eprogram}}</td><td>{{exam.esemester}}</td>
+     <td><form method="post" action="edelete">{% csrf_token %}
+        <input name="id" type="hidden" value={{exam.id}} />
+        <input name="id1" type="submit" value=Delete>
+    </form></td>
+    </tr>
+    {% endfor %}
+ </table><br><br><form action="newexam" method="Get">
+    {% csrf_token %}
+
+    <input type="submit"  value="Add exam"><br><br>
+
+</form>
+
+ 
+
+<form action="new" method="post">
+    {% csrf_token %}
+
+    <input type="submit" class="button-main" value="Go Back"><br><br>
+</form>
+
+<form action="login" method="get">
+    {% csrf_token %}
+
+    <input type="submit" class="button-main" value="Go Home"><br><br>
+
+</form>
+{% endblock %}

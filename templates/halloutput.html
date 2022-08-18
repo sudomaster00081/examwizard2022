@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+    <title>Hall Allocated</title>
+    </head>
+    <body onload="waitFiveSec()"><div align = "center">
+        <div aligned="left"><h3>
+            Name of Examination :{{exams.ename}}   <br>
+            Date Of Examination : {{edate}} @ {{etime}}<br>
+            Examination Semester and Course :{{exams.esemester}} Semester {{exams.eprogram}}<br>
+            Hall : {{hall.hname}} <br>
+            Name Of Invigilator: {{invigilator}}
+        </h3></div>
+        {% for papers in paperinfo %}
+        <br>{{papers.code}}:{{papers.pcount}}
+        {% endfor %}
+        <table style="font-size: larger;width: 80%;height: 350px;text-align:center" border="10">
+            <tr>
+                <th>Row1</th><th>Row2</th><th>Row3</th><th>Row4</th><tr>
+            </tr>
+            
+            <tr>
+                {%for student in students %}
+                <td>{{student.scode}}</td>{% if forloop.counter|divisibleby:4 %}
+                </tr><tr>{% endif %}
+
+                {% endfor %}
+            </tr>
+            
+        </table>
+    </div>
+    <script>
+    
+        function waitFiveSec(){
+            window.print()
+            setTimeout(function() {
+                window.close()
+            }, 0000);
+            
+        }
+      </script>
+    </body>
+</head>
+</html>

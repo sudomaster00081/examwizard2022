@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Attendance Management</h1>
+<br><br>
+<div>
+    {%for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+</div>
+<form action="mselectshedule" method="post">
+    {% csrf_token %}
+    <input name="eid" type="hidden" value={{eid}} />
+    <input type="submit" class="button-62" value="Mark Attendance" /><br><br>
+</form>
+<form action="pselectshedule" method="post">
+    {% csrf_token %}
+    <input name="eid" type="hidden" value={{eid}} />
+    <input type="submit" class="button-62" value="Print Attendance" /><br><br>
+</form>
+
+
+
+<form action="attendancemanagement" method="get">
+    {% csrf_token %}
+            <input name="eid" type="hidden" value={{eid}} />
+    <input type="submit" class="button-main" value="Go Back"><br><br>
+</form>
+
+<form action="login" method="get">
+    {% csrf_token %}
+
+    <input type="submit" class="button-main" value="Go Home"><br><br>
+</form>
+
+{% endblock %}

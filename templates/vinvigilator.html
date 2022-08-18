@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Verify Invigilator Info </h1>
+<div>
+    {%for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+</div>
+<table border="5"><tr>
+    <th>Invigilator ID</th><th>Invigilator Code</th><th>Invigilator Name</th><th>Invigilator Department</th><th></th>
+ </tr>
+     
+     {% for invigilator in invigilators %}<tr>
+     <td>{{invigilator.id}}</td><td>{{invigilator.icode}}</td><td>{{invigilator.iname}}</td>
+     <td>{{invigilator.idepartment}}</td>
+     <td>
+         <form action="vinvigilators" method="get">{% csrf_token %}
+        <input name="id" type="hidden" value={{invigilator.id}} />
+        <input name={{invigilator.icode}} type="radio" checked value="checked">yes<input name={{invigilator.icode}} type="radio" value="unchecked">no
+    </td>
+    </tr>
+    {% endfor %}
+ </table><br><br>
+ 
+    {% csrf_token %}
+    <input name="eid" type="hidden" value={{eid}} />
+    <input type="submit"  class="button-verify"  value="Verify And Go To Next Step"><br><br>
+
+</form>
+
+
+
+<form action="new" method="post">
+    {% csrf_token %}
+
+    <input type="submit" class="button-main" value="Go Back"><br><br>
+</form>
+
+<form action="login" method="get">
+    {% csrf_token %}
+
+    <input type="submit" class="button-main" value="Go Home"><br><br>
+
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Generate Time Table Info 3333</h1>
+
+
+<table border="5"><tr>
+    <th>TID</th><th>Exam Code</th><th>Exam Date</th><th>Exam Time</th><th></th>
+ </tr>
+     
+     {% for timetable in timetables %}<tr>
+     <td>{{timetable.id}}</td><td>{{timetable.ecode}}</td><td>{{timetable.edate}}</td>
+     <td>{{timetable.etime}}</td><td>
+     <td><form method="post" action="tgenerate">{% csrf_token %}
+        <input name="pid" type="hidden" value={{timetable.pid}} />
+        <input name="tid" type="hidden" value={{timetable.id}} />
+        <input name="eid" type="hidden" value={{eid}} />
+        <input {{disornot}} name="id1" type="submit" value={{tobe}}>
+    </form></td>
+    </tr>
+    {% endfor %}
+ </table><br><br>
+
+
+<div>
+    {%for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+</div>
+
+
+<form action="vhalls" method="post">
+    {% csrf_token %}
+    <input name="eid" type="hidden" value={{eid}} />
+    <input class="noselect" type="submit"  value="Verify And Go To Next Step"><br><br>
+
+</form>
+
+{% endblock %}

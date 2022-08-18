@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <title>
+            Attendance Sheet
+        </title>
+        <body onload="waitFiveSec()">
+            <div align="center">
+                <h1>UNIVERSITY OF CALICUT</h1>
+                (STATEMENT TO ACCOMPANY ANSWER PAPERPACKET SENT TO THE CONTROLER OF EXAMINATION BY THE CHIEF SUPERINTENDENT)
+                <H3>CENTRE OF EXAMINATION : NMSM GOVERNMENT COLLEGE KALPETTA</H3>
+                NAME OF EXAMINATION : {{exam.ename}} <br>
+                <table border="5">
+                    <tr>
+                        <th>DATE</th>
+                        <TH>TIME</TH>
+                        <TH>SUBJECT</TH>
+                        <TH>PAPER CODE</TH>
+                        <TH>TOTAL NUMBER OF ANSWER BOOKS(Presented)</TH>
+                        <th>Absenties Count</th>
+                    </tr>
+                    <TR>
+                        <TH>{{edate}}</TH>
+                        <th>{{etime}}</th>
+                        <th>{{paper.pname}}</th>
+                        <th>{{paper.pcode}}</th>
+                        <th>{{papercount}}</th>
+                        <th>{{apapercount}}</th>
+                    </TR>
+                </table>
+                <br>
+                Register numbers<br>
+                
+                <table  border="5" style="display: inline-block;">
+                    <tr>
+                        <th>Of Presented</th>
+                        
+                    </tr>
+                    {% for presented in presents %}
+                    <tr>
+                        <td>{{presented.scode}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                
+                        <table style="display: inline-block;" border="5">
+                            <tr>
+                                <th>Of Absent</th>
+                                
+                            </tr>
+                            {% for absent in absenties %}
+                            <tr>
+                                <td>{{absent.scode}}</td>
+                                
+                            </tr>
+                            {% endfor %}
+                        </table>
+                
+                <br>
+                <div align="left">
+                    
+                    DATE : {{edate}}
+                    <div align="right">
+                        CHIEF SUPERINTENDENT<br><br>
+                        SIGNATURE :..............................
+                    </div>
+                </div>
+            </div>
+            <script>
+    
+                function waitFiveSec(){
+                    window.print()
+                    setTimeout(function() {
+                        window.close()
+                    }, 0000);
+                    
+                }
+              </script>
+        </body>
+    </head>
+</html>

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Mark Attendance</h1>
+<div>
+    {%for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+</div>
+<table style="width: 55%;height:12cm" border="5"><tr>
+    <th>ID</th><th>Student Code</th><th>Attendance Marking</th>
+ </tr>
+     
+     {% for student in students %}<tr>
+     <td>{{student.id}}</td><td>{{student.scode}}</td>
+     <td><form action="saveattendance" method="Post">
+         {% csrf_token %}
+        <input name="id" type="hidden" value={{student.id}} />
+        
+        <input name={{student.scode}} type="radio" checked value="checked">Present<input name={{student.scode}} type="radio" value="unchecked">Absent
+    </td>
+    </tr>
+    {% endfor %}
+</table>
+<br>    <br>
+
+    <input name="edate" type="hidden" value={{edate}} />
+    {% csrf_token %}
+            <input name="hid" type="hidden" value={{hid1}} />
+            <input name="etime" type="hidden" value={{etime}} />
+            <input name="eid" type="hidden" value={{eid}} />
+    <input type="submit" class="button-62" value="Marked and Save">
+</form><br><br>
+
+<form action="mselecthall" method="post">
+    {% csrf_token %}
+    <input name="edate" type="hidden" value={{edate}} />
+            <input name="hid1" type="hidden" value={{hid}} />
+            <input name="etime" type="hidden" value={{etime}} />
+            <input name="eid" type="hidden" value={{eid}} />
+    <input type="submit" class="button-main" value="Go Back"><br><br>
+</form>
+
+
+
+{% endblock %}

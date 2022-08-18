@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Select Shedule</h1>
+<br><br>
+<div>
+    {%for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+</div>
+
+<table border="5"><tr>
+    <th>TID</th><th>Exam Date</th><th>Exam Time</th><th>Eid</th><th>Pid</th>
+ </tr>
+     
+     {% for timetable in timetables %}<tr>
+     <td>{{timetable.id}}</td><td>{{timetable.edate}}</td><td>{{timetable.etime}}</td>
+     <td>{{timetable.eid}}</td><td>{{timetable.pid}}</td>
+     <td>
+        <form method="post" action={{action}}>{% csrf_token %}
+        <input name="edate" type="hidden" value={{timetable.edate| date:"Y-m-d"}} />
+        <input name="etime" type="hidden" value={{timetable.etime}} />
+        <input name="eid" type="hidden" value={{eid}} />
+        <input type="submit" class="button-62" value="Select" />
+    </form></td>
+    </tr>
+    {% endfor %}
+ </table><br><br>
+
+<div>
+    {%for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+</div>
+
+
+<form action="selectshedule" method="get">
+    {% csrf_token %}
+    <input name="eid" type="hidden" value={{eid}} />
+    <input type="submit" class="button-main" value="Go Back" /><br><br>
+</form>
+
+<form action="login" method="get">
+    {% csrf_token %}
+
+    <input type="submit" class="button-main" value="Go Home"><br><br>
+</form>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

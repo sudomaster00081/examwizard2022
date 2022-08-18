@@ -1,0 +1,67 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<h1>View and PRINT  Seating Info</h1>
+<br>on {{edate}} @ {{etime}}
+
+<h3>Invigilator : {{invigilator}}</h3>
+<div>
+    {%for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+</div>
+<table border="5"><tr>
+    <th>Student Code</th><th>Exam Date</th><th>Exam Time</th><th>Paper id</th><th>Hall ID</th><th>Seat No</th><!--<th>Student Core Paper1</th>
+    <th>Student Core Paper2</th><th>Student Paper3</th><th>Student Paper4</th><th>Student Paper5</th><th>Student Paper6</th>-->
+ </tr>
+     
+     {% for allocateinf in allocateinfo %}<tr>
+     <td>{{allocateinf.scode}}</td>
+     <td>{{allocateinf.edate}}</td><td>{{allocateinf.etime}}</td><td>{{allocateinf.pid}}</td><!--<td>{{student.pid0}}</td><td>{{student.pid0}}</td><td>{{student.pid1}}</td>
+     <td>{{student.pid2}}</td><td>{{student.pid3}}</td><td>{{student.pid4}}</td><td>{{student.pid5}}</td>--><td>{{allocateinf.hid}}</td><td>{{allocateinf.seatno}}</td>
+     <td></td>
+    </tr>
+    {% endfor %}
+ </table><br><br>
+ <form method="post" target="_blank" action="halloutput">
+    {% csrf_token %}
+    <input name="hid" type="hidden" value={{hid}} />
+    <input name="edate" type="hidden" value={{edate}}>
+    <input name="etime" type="hidden" value={{etime}} />
+    <input name="eid" type="hidden" value={{eid}} />
+    <input name="invigilator" type="hidden" value={{invigilator}}>
+    <input type="submit" value="PRINT"><br><br>
+ </form>
+ 
+ 
+ <!--<form action="addstudent" method="get">
+    {% csrf_token %}
+    <input name="eid" type="hidden" value={{eid}} />
+    <input type="submit"  value="Add student"><br><br>
+
+</form>-->
+
+
+
+
+<form action="selecthall" method="post">
+    {% csrf_token %}
+    <input name="edate" type="hidden" value={{edate}} />
+            <input name="hid1" type="hidden" value={{hid}} />
+            <input name="etime" type="hidden" value={{etime}} />
+            <input name="eid" type="hidden" value={{eid}} />
+    <input type="submit" class="button-main" value="Go Back"><br><br>
+</form>
+
+<form action="login" method="get">
+    {% csrf_token %}
+
+    <input type="submit" class="button-main" value="Go Home"><br><br>
+</form>
+
+
+{% endblock %}
+
+
+
+

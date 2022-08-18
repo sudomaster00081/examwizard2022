@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Home Menu</h1>
+<div class="w3-panel w3-green w3-round-xxlarge">
+    {%for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+</div>
+<ul>
+    <form action="new" method="post">
+        {% csrf_token %}
+        <input type="submit" class="button-62" value="Manage Data"><br><br>
+    </form>
+
+<form action="selectexam" method="get">
+    {% csrf_token %}
+
+    <input type="submit" class="button-62" value="Initialise Exam"><br><br>
+</form>
+
+
+<!--
+<form action="allocate" method="get">
+    {% csrf_token %}
+   <input type="submit" class="button-62" value="Allocation"><br><br>
+</form>-->
+<form action="selectoexam" method="get">
+    {% csrf_token %}
+
+    <input type="submit" class="button-62" value="Printout and Other"><br><br>
+</form>
+<form action="viewshedule" method="post">
+    {% csrf_token %}
+
+    <input type="submit" class="button-62" value="View Shedule"><br><br>
+</form>
+
+<form action="exit" method="post">
+    {% csrf_token %}
+
+    <input type="submit" class="button-main" value="Exit/Logout"><br><br>
+</form>
+
+{% endblock %}

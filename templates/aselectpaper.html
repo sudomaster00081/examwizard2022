@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Select Paper</h1>
+<div class="w3-panel w3-pale-blue w3-border">
+{%for message in messages %}
+<h3>{{message}}</h3>
+{% endfor %}
+</div>
+<table border="5">
+    <tr>
+        <th>Id</th><th>Paper Code</th><th>Paper Name</th><th></th>
+    </tr>
+    {% for paper in papers %}
+    <tr>
+        <td>{{paper.id}}</td><td>{{paper.pcode}}</td><td>{{paper.pname}}</td><td>
+            <form method ="post" action="opattendance" target={{blank}}  '_top' >
+                {% csrf_token %}
+            <input name="edate" type="hidden" value={{edate}} />
+            <input name="etime" type="hidden" value={{etime}} />
+            <input name="eid" type="hidden" value={{eid}} />
+            <input name="pid" type="hidden" value={{paper.id}} />
+                <input type="submit" class="button-62" value="Print">
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+<form action={{back}} method="post">
+    {% csrf_token %}
+    <input name="eid" type="hidden" value={{eid}} />
+    <input type="submit" class="button-main" value="Go Back"><br><br>
+</form>
+
+<form action="login" method="get">
+    {% csrf_token %}
+
+    <input type="submit" class="button-main" value="Go Home"><br><br>
+
+</form>
+
+
+
+
+
+{% endblock %}

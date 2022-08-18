@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Add New Hall</h1>
+<form method="post" action="addhall">
+    {% csrf_token %}
+    Enter Hall Code : <input required type="text" name="hcode"><br><br>
+    Enter Hall Name : <input required type="text" name="hname"><br><br>
+    Enter Hall Capacity : <input required type="number" name="hcapacity"><br><br>
+    <input class="button-62" type="submit">
+</form>
+
+<div>
+    {%for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+</div>
+
+<br><br>
+<form action="hallinfo" method="post">
+    {% csrf_token %}
+    <input name="eid" type="hidden" value={{eid}} />
+    <input type="submit" class="button-main" value="Go Back"><br><br>
+</form>
+
+{% endblock %}

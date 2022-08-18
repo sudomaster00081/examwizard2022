@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Examinations Shedule</h1>
+ <h3>Exams:<br></h3>
+ <table border="5">
+     <tr>
+         <th>Examid</th><th>Exam Name</th>
+     </tr>
+     {% for exam in exams %}
+     <tr>
+         <td>{{exam.id}}</td>
+         <td>{{exam.ename}}</td>
+     </tr>
+     {% endfor %}
+ </table>
+ <br>
+ <h3>Timetables :<br></h3>
+ <table border="5">
+     <tr>
+         <th>Exam Date</th>
+         <th>Exam Time</th>
+     </tr>
+     {% for timetable in timetables %}
+     <tr>
+         <td>{{timetable.edate}}</td>
+         <td>{{timetable.etime}}</td>
+     </tr>
+     {% endfor %}
+    </table>
+
+
+    <form action="login" method="get">
+        {% csrf_token %}
+    
+        <input type="submit" class="button-main" value="Go Home"><br><br>
+    </form>
+
+
+
+
+{% endblock %}

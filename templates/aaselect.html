@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>output management</h1>
+<br><br>
+
+<div>
+    {%for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+</div>
+
+<form action="selectshedule" method="post">
+    {% csrf_token %}
+    <input name="eid" type="hidden" value={{eid}} />
+    <input type="submit" class="button-62" value="View/Print Seat Allocation" /><br><br>
+</form>
+
+<form action="iselectshedule" method="post">
+    {% csrf_token %}
+    <input name="eid" type="hidden" value={{eid}} />
+    <input type="submit" class="button-62" value="View/Print Invigilators Copy" /><br><br>
+</form>
+
+<form action="attendancemanagement" method="post">
+    {% csrf_token %}
+    <input name="eid" type="hidden" value={{eid}} />
+    <input type="submit" class="button-62" value="Manage Attendance" /><br><br>
+</form>
+
+
+<form action="aaselect" method="get">
+    {% csrf_token %}
+    <input name="eid" type="hidden" value={{eid}} />
+    <input type="submit" class="button-main" value="Go Back To Allocation" /><br><br>
+</form>
+
+<form action="login" method="get">
+    {% csrf_token %}
+
+    <input type="submit" class="button-main" value="Go Home"><br><br>
+</form>
+
+
+
+
+
+
+{% endblock %}

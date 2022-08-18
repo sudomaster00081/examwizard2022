@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Hall Info</h1>
+<h2>{{a}}</h2>
+<div>
+    {%for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+</div>
+
+ <table border="5"><tr>
+    <th>ID</th><th>Hall Code</th><th>Hall Name</th><th>Hall Capacity</th><th></th>
+ </tr>
+     
+     {% for hall in halls %}<tr>
+     <td>{{hall.id}}</td><td>{{hall.hcode}}</td><td>{{hall.hname}}</td><td>{{hall.hcapacity}}</td>
+     <td><form method="post" action="hdelete">{% csrf_token %}
+        <input name="id" type="hidden" value={{hall.id}} />
+        <button class="button-delete">  
+            <div class="trash">  
+              <div class="top">  
+                <div class="paper"></div>  
+              </div>  
+              <div class="box"></div>  
+              <div class="check">  
+                <svg viewBox="0 0 8 6">  
+                  <polyline points="1 3.4 2.71428571 5 7 1"></polyline>  
+                </svg>  
+              </div>  
+            </div>  
+            <span>Delete Item</span>  
+          </button> 
+    </form></td>
+    </tr>
+    {% endfor %}
+ </table><br><br><form action="addhall" method="get">
+    {% csrf_token %}
+
+    <input type="submit" class="button-62" value="Add Hall"><br><br>
+
+</form>
+
+ 
+
+<form action="new" method="post">
+    {% csrf_token %}
+
+    <input type="submit" class="button-main" value="Go Back"><br><br>
+</form>
+
+<form action="login" method="get">
+    {% csrf_token %}
+
+    <input type="submit" class="button-main" value="Go Home"><br><br>
+
+</form>
+{% endblock %}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<head>
+    <title>Attendance Sheet</title>
+</head>
+<body onload="waitFiveSec()"> <div align="center">
+    <h2>UNIVERSITY OF CALICUT</h2>
+    (tobe prepared in Duplicate)<br>
+    <h4>(Account of Main and Additional Answer Books issued to Candidates)</h4>
+    <div aligned="left">
+        Name of Examination : {{exams.ename}}  <br>
+        Date Of Examination : {{edate}} @ {{etime}}<br>
+        Examination Semester and Course :{{exams.esemester}} Semester {{exams.eprogram}}<br>
+        Hall : {{hall.hname}} <br>
+        Name Of Invigilator: {{invigilator}}
+     <table border = '5'>
+        <tr>
+            <th>IDNo</th><th>Student Reg:No</th><th>Additional Sheets Number</th><th>Attendance Marking</th>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{student.id}}</td><td>{{student.scode}}</td><td></td><td></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <table border ='3'>
+        <tr>
+            <th></th><th>Main Sheets</th><th>Additional Sheets</th>
+        </tr>
+        <tr>
+            <th>Total No. Of Answer Books Received</th>
+            <th></th><th></th>
+        </tr>
+        <tr>
+            <th>Total No. Of Answer Books Received</th>
+            <th></th><th></th>
+        </tr>
+        <tr>
+            <th>Balance returned to Chief Superintendent </th>
+            <th></th><th></th>
+        </tr>
+    </table><br>
+    <div align="left">Place: NMSM Government College Kalpetta<br>
+        <div align="right">Signature Of Invigilator</div>
+    <br>
+        Date : {{edate1}}<br> <div align="right">{{invigilator}}  ..................</div>
+</div>
+</div>
+<hr>
+<div align="left">
+    <p>
+        N.B : One copy to be retained in office<br>
+            One copy to be arranged otherwise send to university along with the statement of Accounts of answer Books
+            after the close of the examination 
+    </p>
+</div>
+<script>
+    
+    function waitFiveSec(){
+        window.print()
+        setTimeout(function() {
+            window.close()
+        }, 0000);
+        
+    }
+  </script>
+</body>
+</html>

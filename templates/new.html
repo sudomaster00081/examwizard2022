@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Data Entry</h1>
+<!--<form action="nominal" method="post">
+    {% csrf_token %}
+
+    <input type="submit" class="button-62" value="Enter Nominal Role Data"><br><br>
+</form>-->
+
+<form action="hallinfo" method="post">
+    {% csrf_token %}
+
+    <input class="button-62" type="submit" value="Manage Hall Details"><br><br>
+</form>
+<form action="invigilatorinfo" method="post">
+    {% csrf_token %}
+
+    <input class="button-62" type="submit" value="Manage Invigilator Data"><br><br>
+</form>
+
+
+<form action="login" method="get">
+    {% csrf_token %}
+
+    <input type="submit" class="button-main" value="Go back"><br><br>
+</form>
+{% endblock %}

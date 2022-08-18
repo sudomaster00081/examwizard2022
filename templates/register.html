@@ -1,0 +1,340 @@
+<html>
+    <head>
+        <title>Register New</title>
+        <style>
+h1{
+            font-size: 30px;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 15px;
+          }
+          table{
+            border-spacing: 30px;
+            width:100%;
+            table-layout: fixed;
+          }
+          .tbl-header{
+            background-color: rgba(255,255,255,0.3);
+           }
+          .tbl-content{
+            height:300px;
+            overflow-x:auto;
+            margin-top: 0px;
+            border: 1px solid rgba(255,255,255,0.3);
+          }
+          th{
+            padding: 20px 15px;
+            text-align: left;
+            font-weight: 500;
+            font-size: 16px;
+            color: #fff;
+            text-transform: uppercase;
+          }
+          td{
+            max-width: 150px;
+              max-height: 150px;
+              overflow: hidden;
+            padding: 20px;
+            text-align: left;
+            vertical-align:middle;
+            font-weight: 300;
+            font-size: 12px;
+            color: #fff;
+            border-bottom: solid 1px rgba(255,255,255,0.1);
+          }
+          
+          
+          /* demo styles */
+          
+          @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+          body{
+            background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+            background: linear-gradient(to right, #25c481, #25b7c4);
+            font-family: 'Roboto', sans-serif;
+          }
+          section{
+            margin: 50px;
+          }
+          
+          
+          /* follow me template */
+          .made-with-love {
+            margin-top: 40px;
+            padding: 10px;
+            clear: left;
+            text-align: center;
+            font-size: 10px;
+            font-family: arial;
+            color: #fff;
+          }
+          .made-with-love i {
+            font-style: normal;
+            color: #F50057;
+            font-size: 14px;
+            position: relative;
+            top: 2px;
+          }
+          
+          
+          
+          /* for custom scrollbar for webkit browser*/
+          
+          ::-webkit-scrollbar {
+              width: 6px;
+          } 
+          ::-webkit-scrollbar-track {
+              -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+          } 
+          ::-webkit-scrollbar-thumb {
+              -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+          }
+
+          .button-62 {
+            background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+            border: 0;
+            border-radius: 12px;
+            color: #FFFFFF;
+            cursor: pointer;
+            display: inline-block;
+            font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 2.5;
+            outline: transparent;
+            padding: 0 1rem;
+            text-align: center;
+            text-decoration: none;
+            transition: box-shadow .2s ease-in-out;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
+          }
+          
+          .button-62:not([disabled]):focus {
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+          }
+          
+          .button-62:not([disabled]):hover {
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+          }
+
+          .button-main {
+            background: linear-gradient(to bottom right, blue, #FF9A5A);
+            border: 0;
+            border-radius: 12px;
+            color: #FFFFFF;
+            cursor: pointer;
+            display: inline-block;
+            font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 2.5;
+            outline: transparent;
+            padding: 0 1rem;
+            text-align: center;
+            text-decoration: none;
+            transition: box-shadow .2s ease-in-out;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
+          }
+          
+          .button-main:not([disabled]):focus {
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+          }
+          
+          .button-main:not([disabled]):hover {
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+          }
+          .login{  
+                 
+            overflow: hidden;  
+            margin: auto;  
+            padding: 80px;  
+            background: cyan;  
+            border-radius: 20px ; 
+
+            h2 {
+              color: #000;
+              text-align: center;
+              font-size: 2em;
+              margin: 20px 0;
+            }
+            
+            .warpper {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+            }
+            
+            .tab {
+              cursor: pointer;
+              padding: 10px 20px;
+              margin: 0px 2px;
+              background: #32557f;
+              display: inline-block;
+              color: #fff;
+              border-radius: 3px 3px 0px 0px;
+              box-shadow: 0 0.5rem 0.8rem #00000080;
+            }
+            
+            .panels {
+              background: #fff;
+              box-shadow: 0 2rem 2rem #00000080;
+              min-height: 200px;
+              width: 100%;
+              max-width: 500px;
+              border-radius: 3px;
+              overflow: hidden;
+              padding: 20px;
+            }
+            
+            .panel {
+              display: none;
+              animation: fadein 0.8s;
+            }
+            
+            @keyframes fadein {
+              from {
+                opacity: 0;
+              }
+              to {
+                opacity: 1;
+              }
+            }
+            
+            .panel-title {
+              font-size: 1.5em;
+              font-weight: bold;
+            }
+            
+            .radio {
+              display: none;
+            }
+            
+            #one:checked ~ .panels #one-panel,
+            #two:checked ~ .panels #two-panel,
+            #three:checked ~ .panels #three-panel {
+              display: block;
+            }
+            
+            #one:checked ~ .tabs #one-tab,
+            #two:checked ~ .tabs #two-tab,
+            #three:checked ~ .tabs #three-tab {
+              background: #fff;
+              color: #000;
+              border-top: 3px solid #32557f;
+            }
+            h2 {
+              text-shadow: 0 1px 0 rgb(181, 235, 20),
+                           0 2px 0 #c9c9c9,
+                           0 3px 0 #bbb,
+                           0 4px 0 #b9b9b9,
+                           0 5px 0 #aaa,
+                           0 6px 1px rgba(0,0,0,.1),
+                           0 0 5px rgba(0,0,0,.1),
+                           0 1px 3px rgba(0,0,0,.3),
+                           0 3px 5px rgba(0,0,0,.2),
+                           0 5px 10px rgba(0,0,0,.25),
+                           0 10px 10px rgb(242, 232, 232),
+                           0 20px 20px rgba(0,0,0,.15);
+            }
+          } 
+          .button-29 {
+              align-items: center;
+              appearance: none;
+              background-image: radial-gradient(100% 100% at 100% 0, #b80505 0, #fc1616 100%);
+              border: 0;
+              border-radius: 6px;
+              box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+              box-sizing: border-box;
+              color: #fff;
+              cursor: pointer;
+              display: inline-flex;
+              font-family: "JetBrains Mono",monospace;
+              height: 48px;
+              justify-content: center;
+              line-height: 1;
+              list-style: none;
+              overflow: hidden;
+              padding-left: 16px;
+              padding-right: 16px;
+              position: relative;
+              text-align: left;
+              text-decoration: none;
+              transition: box-shadow .15s,transform .15s;
+              user-select: none;
+              -webkit-user-select: none;
+              touch-action: manipulation;
+              white-space: nowrap;
+              will-change: box-shadow,transform;
+              font-size: 18px;
+            }
+            
+            .button-29:focus {
+              box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+            }
+            
+            .button-29:hover {
+              box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+              transform: translateY(-2px);
+            }
+            
+            .button-29:active {
+              box-shadow: #3c4fe0 0 3px 7px inset;
+              transform: translateY(2px);
+            }  
+  
+            body {
+              background-image: url("https://wallpapercave.com/wp/wp3161585.jpg");
+              background-repeat: no-repeat;
+              background-attachment: fixed;
+              background-size: cover;
+            }
+            body  
+            {  
+                margin: 0;  
+                padding: 0;  
+                background-color:#6abadeba;  
+                font-family: 'Arial';  
+            } 
+        </style>
+    </head>
+    <body><div align="center">
+        <h1>Register HERE</h1>
+        <div class="login">
+          <div>
+            {% for message in messages %}
+            <h3>{{message}}</h3>
+            {% endfor %}
+          </div>
+        <form id="login" action="register" method="post">
+            {% csrf_token %}
+            User Name : <br>
+            <input required type="text" placeholder="Username" name="uname"><br>
+            Email :<br>
+            <input required type="text" placeholder="Email" name="email"><br>
+            Password : <br>
+            <input required type="Password" placeholder="Password" name="pass1"><br>
+            Confirm Password : <br>
+            <input required type="Password" placeholder="Repeat Password" name="pass2"><br><br><br>
+            <input  class="button-62" type="submit" > 
+        </form>
+      </div>
+       
+            <form action="/" method="get">
+                {% csrf_token %}
+            
+                <input type="submit" class="button-main" value="Go Back"><br><br>
+            </form>
+        
+    </div>
+        
+        
+    </body>
+</html>
+

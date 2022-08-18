@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Add New Time table</h1>
+    <table border="5">
+    <tr>
+    <th>Paper ID</th><th>Paper Code</th><th>Paper Name</th><th>EID</th><th>Department</th><th>Date</th><th>time</th></tr>
+   
+    {% for paper   in papers  %}
+    <tr>
+        <td>{{paper.id}}</td><td>{{paper.pcode}}</td><td>{{paper.pname}}</td><td>{{paper.eid}}</td><td>{{paper.department}}</td>
+        <form action="addtimetable" method="post">{% csrf_token %}
+            
+            
+            <td><input  name="date" required id="date" type="date" {{paper.dornot}} value='{{timetable.edate}}'/></td>
+            <td><select required {{paper.dornot}}  name="time">
+                <option value="0" selected disabled hidden>Choose Time</option>
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+                
+            </select></td><td>
+            <input name="eid"  type="hidden" value={{eid}}>
+            <input name="pid" id="pid" type="hidden" value={{paper.id}} >
+            <input type="submit" {{paper.dornot}} value="Add To Database">
+        </form></td>
+       </tr>
+       {% endfor %}
+</table>
+
+<div>
+    {%for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+</div>
+<br><br>
+<form action="selecttexam" method="post">
+    {% csrf_token %}
+    <input name="id"  type="hidden" value={{eid}}>
+    <input type="submit" class="button-main" value="Go Back"><br><br>
+</form>
+
+
+
+{% endblock %}

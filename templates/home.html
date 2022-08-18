@@ -1,0 +1,246 @@
+<html>
+    <head>
+        <link rel="icon" type="image/png" sizes="16x16" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvCG99S1eCWQuCHPysoAeGrKQJe3STM8MzCQ&usqp=CAU">
+        <title></title>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <style>
+            body {
+                background: #f69ec4;
+                font-family: "Lato", sans-serif;
+                background-image: url("https://wallpapercave.com/wp/wp3161585.jpg");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+              }
+              
+              h2 {
+                color: #000;
+                text-align: center;
+                font-size: 2em;
+                margin: 20px 0;
+              }
+              
+              .warpper {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+              }
+              
+              .tab {
+                cursor: pointer;
+                padding: 10px 20px;
+                margin: 0px 2px;
+                background: #32557f;
+                display: inline-block;
+                color: #fff;
+                border-radius: 3px 3px 0px 0px;
+                box-shadow: 0 0.5rem 0.8rem #00000080;
+              }
+              
+              .panels {
+                background: #fff;
+                box-shadow: 0 2rem 2rem #00000080;
+                min-height: 200px;
+                width: 100%;
+                max-width: 500px;
+                border-radius: 3px;
+                overflow: hidden;
+                padding: 20px;
+              }
+              
+              .panel {
+                display: none;
+                animation: fadein 0.8s;
+              }
+              
+              @keyframes fadein {
+                from {
+                  opacity: 0;
+                }
+                to {
+                  opacity: 1;
+                }
+              }
+              
+              .panel-title {
+                font-size: 1.5em;
+                font-weight: bold;
+              }
+              
+              .radio {
+                display: none;
+              }
+              
+              #one:checked ~ .panels #one-panel,
+              #two:checked ~ .panels #two-panel,
+              #three:checked ~ .panels #three-panel {
+                display: block;
+              }
+              
+              #one:checked ~ .tabs #one-tab,
+              #two:checked ~ .tabs #two-tab,
+              #three:checked ~ .tabs #three-tab {
+                background: #fff;
+                color: #000;
+                border-top: 3px solid #32557f;
+              }
+              h2 {
+                text-shadow: 0 1px 0 rgb(181, 235, 20),
+                             0 2px 0 #c9c9c9,
+                             0 3px 0 #bbb,
+                             0 4px 0 #b9b9b9,
+                             0 5px 0 #aaa,
+                             0 6px 1px rgba(0,0,0,.1),
+                             0 0 5px rgba(0,0,0,.1),
+                             0 1px 3px rgba(0,0,0,.3),
+                             0 3px 5px rgba(0,0,0,.2),
+                             0 5px 10px rgba(0,0,0,.25),
+                             0 10px 10px rgb(242, 232, 232),
+                             0 20px 20px rgba(0,0,0,.15);
+              }
+              .login{  
+                 
+                overflow: hidden;  
+                margin: auto;  
+                padding: 80px;  
+                background: cyan;  
+                border-radius: 20px ;  
+                  
+        } 
+        .button-29 {
+            align-items: center;
+            appearance: none;
+            background-image: radial-gradient(100% 100% at 100% 0, #b80505 0, #fc1616 100%);
+            border: 0;
+            border-radius: 6px;
+            box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+            box-sizing: border-box;
+            color: #fff;
+            cursor: pointer;
+            display: inline-flex;
+            font-family: "JetBrains Mono",monospace;
+            height: 48px;
+            justify-content: center;
+            line-height: 1;
+            list-style: none;
+            overflow: hidden;
+            padding-left: 16px;
+            padding-right: 16px;
+            position: relative;
+            text-align: left;
+            text-decoration: none;
+            transition: box-shadow .15s,transform .15s;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
+            will-change: box-shadow,transform;
+            font-size: 18px;
+          }
+          
+          .button-29:focus {
+            box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+          }
+          
+          .button-29:hover {
+            box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+            transform: translateY(-2px);
+          }
+          
+          .button-29:active {
+            box-shadow: #3c4fe0 0 3px 7px inset;
+            transform: translateY(2px);
+          }  
+
+          body {
+            background-image: url("https://wallpapercave.com/wp/wp3161585.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+          }
+          body  
+          {  
+              margin: 0;  
+              padding: 0;  
+              background-color:#6abadeba;  
+              font-family: 'Arial';  
+          }  
+        </style>
+        <script>
+
+        </script>
+    </head>
+    <body>
+        <div align="center">
+        <img src="data:image/jpeg;base64,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">
+        <h2>NMSM Gov College Exam Wizard- 2022</h2>
+        <h3> <i><u>Version - 0.015</u></i></h3>
+<div class="warpper">
+  <input class="radio" id="one" name="group" type="radio" checked>
+  <input class="radio" id="two" name="group" type="radio">
+  <input class="radio" id="three" name="group" type="radio">
+
+  <div class="tabs">
+    <label class="tab" id="one-tab" for="one">Office Use</label>
+    <label class="tab" id="two-tab" for="two">Student Area</label>
+    <label class="tab" id="three-tab" for="three">Invigilators Area</label>
+  </div>
+
+  <div class="panels">
+    <div class="panel" id="one-panel">
+      <div class="w3-panel w3-red">
+        {%for message in messages %}
+        <h3>{{message}}</h3>
+        {% endfor %}
+    </div>
+      <div class="panel-title">Office use only</div>
+      <p>
+        <div class="login">
+            
+            <form id="login" action="login" method="post">
+                {% csrf_token %}<br>
+                
+                Enter ID : <br><input required type="text" name="id"  id="id" placeholder="CollegeID"><br><br>
+                Enter Security Code:<br><input required type="password" name="pass" id="pass"  placeholder="Security Code"><br><br>
+                <input type="submit"  class="button-29"><br><hr>
+            
+                Interested? Click here to <a href="accounts/register"> Signup</a> 
+            
+            </form></div>
+            
+      </p>
+    </div>
+    <div class="panel" id="two-panel">
+      <div class="w3-panel w3-red">
+        {%for message in messages %}
+        <h3>{{message}}</h3>
+        {% endfor %}
+    </div>
+      <div class="panel-title">Student Entry</div>
+      
+      <p>Enter Your SCODE Eg: NMATxxxx</p>
+      <form action="studentarea" method="post">
+        {% csrf_token %}
+        <input required type="text" name="scode">
+        <input type="submit">
+      </form>
+    </div>
+    <div class="panel" id="three-panel">
+      <div class="w3-panel w3-red">
+        {%for message in messages %}
+        <h3>{{message}}</h3>
+        {% endfor %}
+    </div>
+      <div class="panel-title">Invigilator</div>
+      <form action="invigilatorarea" method="post">
+        {% csrf_token %}
+        <input required type="text" name="icode">
+        <input type="submit">
+      </form>
+      <p>Enter The ICODE Above</p>
+    </div>
+  </div>
+</div>
+</div>
+    </body>
+</html>

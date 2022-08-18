@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Add Student File</h1>
+<form method="post" action="sfileupload" enctype="multipart/form-data">
+    {% csrf_token %}
+    Enter The File <input required type="file" id="myfile" name="myfile" ><br><br>
+    <input name="eid" id="eid" type="hidden" value={{eid}} />
+    <input type="submit">
+</form>
+
+<div>
+    {%for message in messages %}
+    <h3>{{message}}</h3>
+    {% endfor %}
+</div>
+
+
+
+
+
+
+{% endblock %}

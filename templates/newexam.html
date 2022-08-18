@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<script >
+var country_and_states = {
+    country : {"Under Graduate":"Under Graduate","Post Graduate":"Post Graduate"}, 
+    states: {"Under Graduate":[{"code":"1","name":"I st Semester"},{"code":"2","name":"II nd Semester"},{"code":"3","name":"III rd Semester"},{"code":"4","name":"IV th Semester"},{"code":"5","name":"V th Semester"},{"code":"6","name":"VI th Semester"}],"Post Graduate":[{"code":"1","name":"I st Semester"},{"code":"2","name":"II nd Semester"},{"code":"3","name":"III rd Semester"},{"code":"4","name":"IV th Semester"}]}
+    };
+</script>
+</head>
+<body>
+    <h1>Enter New Examination Details</h1>
+    <form action="newexam" method="post">
+    {% csrf_token %}
+    Exam Code : <input type="text" required name="ecode"><br><br>
+    Exam Name : <input type="text" required name="ename"><br><br>
+    Year Of Examination : <input required type="number" min="2010" max="2099" name="year"> <br><br>
+<div>
+<label for="country">Program</label>
+<select name="country" id="country"><br><br>
+    
+<option>select Program</option>
+</select>
+</div>
+
+<div>
+<label for="state">Semester of Examination :</label>
+
+<span id="state-code"><input type="text" required id="state"></span>
+</div><br><br>
+<input class="button-62" type="submit"><br><br>
+
+<script>
+
+// user country code for selected option
+let user_country_code = "in";
+
+(function () {
+    
+
+
+    
+// Get the country name and state name from the imported script.
+    let country_list = country_and_states['country'];
+    
+let states_list = country_and_states['states'];
+
+    // creating country name drop-down
+    let option =  '';
+    option += '<option>Select Program</option>';
+    
+for(let country_code in country_list){
+        // set selected option user country
+        let selected = (country_code == user_country_code) ? ' selected' : '';
+
+        option += '<option value="'+country_code+'"'+selected+'>'+country_list[country_code]+'</option>';
+    }
+    
+document.getElementById('country').innerHTML = option;
+
+    // creating states name drop-down
+    
+let text_box = '<input type="text" class="input-text" id="state">';
+    let state_code_id = document.getElementById("state-code");
+
+    
+function create_states_dropdown() {
+        // get selected country code
+        let country_code = document.getElementById("country").value;
+        
+let states = states_list[country_code];
+
+        if(!states){
+            state_code_id.innerHTML = text_box;
+            return;
+        }
+        let option = '';
+        if (states.length > 0) {
+            option = '<select name="state" id="state">\n';
+            for (let i = 0; i < states.length; i++) {
+                option += '<option value="'+states[i].code+'">'+states[i].name+'</option>';
+            }
+            option += '</select>';
+        } else {
+            option = text_box
+        }
+        state_code_id.innerHTML = option;
+    }
+    const country_select = document.getElementById("country");
+    country_select.addEventListener('change', create_states_dropdown);
+
+    create_states_dropdown();
+})();
+
+
+</script>
+</form>
+
+<form action="login" method="get">
+    {% csrf_token %}
+
+    <input type="submit" class="button-main" value="Go Home"><br><br>
+</form>
+</body>
+</html>
+
+
+{% endblock %}
