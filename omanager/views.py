@@ -1,4 +1,4 @@
-import imp
+import importlib 
 from django.shortcuts import render
 from gather.models import Paperinfo
 from gather.models import Attendancestored, Student
