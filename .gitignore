@@ -1,2 +1,6 @@
 *.pyc
 *.lock
+.env
+.venv/
+**/migrations/
+**/__pycache__/
